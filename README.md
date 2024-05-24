@@ -36,6 +36,6 @@ Po instalaci spusťte soubor main.py
 
 
 ## Ukázka
-![Yellow flag](YFmenu_picture.png)
-![Green flag](GFmenu_picture.png)
-![Pitstop](Pmenu_picture.png)
+![Yellow flag](project_race/YFmenu_picture.png)
+![Green flag](project_race/GFmenu_picture.png)
+![Pitstop](project_race/Pmenu_picture.png)
