@@ -127,7 +127,9 @@ def run_game(screen, WIDTH, HEIGHT, player_name):
                 if player.lives <= 0:
                     print("Srážka! Konec hry.")
                     save_score(player_name, score)  # Uložení skóre při ukončení hry
-                    running = False
+                    from yellow_flag.menu import show_menu
+                    show_menu(screen, WIDTH, HEIGHT)
+                    return  # Zajistit, že hra skončí po zobrazení menu
         else:
             if collided_recently and current_time - last_collision_time >= collision_cooldown:
                 collided_recently = False
