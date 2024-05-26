@@ -1,5 +1,6 @@
 # Project-race
 Toto je závodní hra s tématikou Formule 1. Program obsahuje tři minihry (Yellow flag, Green flag a Pitstop)
+
 V každé minihře si můžete prohlédnout také tabulku nejlepších.
 
 
@@ -10,10 +11,15 @@ Pro hraní této hry jsou potřeba tyto rozšíření (pygame a sys)
 ## Minihry
 ### 1. Yellow flag
 V této minihře jedete po nekonečné trati, a musíte se vyhýbat překážkám.
+
 Cílem je vydržet co nejdéle a tím pádem nasbírat co nejvyšší skóre.
+
 Ve hře můžete zrychlyt (zrychlí se rychlost i přičítání bodů) a zpomalit (spomalí se rychlost i přičítání bodů)
-Jsou dva typy překážek) Pneumatika: Tato překážka vám odebere jeden život
-                        Štěrk: Tato překážka vám odebere 10 bodů
+
+Jsou dva typy překážek): Pneumatika: Tato překážka vám odebere jeden život
+
+                         Štěrk: Tato překážka vám odebere 10 bodů
+                        
 
 ### 2. Green flag
 V této minihře musíte co nejrychleji projet tři kola na jednoduché trati.
