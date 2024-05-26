@@ -1,5 +1,6 @@
 import pygame
 import json
+import os
 import random
 from .p_car import Player
 from .debris import Obstacle
@@ -141,6 +142,9 @@ def run_game(screen, WIDTH, HEIGHT, player_name):
 
 # Najít a aktualizovat nejlepší skóre pro dané jméno
 def save_score(name, score):
+    # Získání cesty k souboru ve stejném adresáři, kde je hlavní skript spuštěn
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(base_dir, "high_scores.json")
     try:
         with open("high_scores.json", "r") as file:
             high_scores = json.load(file)
@@ -158,8 +162,8 @@ def save_score(name, score):
     if not player_exists:
         high_scores.append({"name": name, "score": score})
 
-    # Sort and keep only the top 10 scores
+    # Seřazení a uchování pouze nejlepších 10 skóre
     high_scores = sorted(high_scores, key=lambda x: x["score"], reverse=True)[:10]
-
-    with open("high_scores.json", "w") as file:
+    
+    with open(file_path, "w") as file:
         json.dump(high_scores, file)
