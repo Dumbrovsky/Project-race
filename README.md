@@ -4,8 +4,10 @@ Toto je závodní hra s tématikou Formule 1. Program obsahuje tři minihry (Yel
 V každé minihře si můžete prohlédnout také tabulku nejlepších.
 
 
+
 ## Potřebné rozšíření
 Pro hraní této hry jsou potřeba tyto rozšíření (pygame a sys).
+
 
 
 ## Minihry
@@ -31,15 +33,18 @@ Při každém zatočení se odečítá životnost pneumatik.
 Cílem hry je odjed co nejdelší vzdálenost.
 
 
+
 ## Ovládání
 Menu se ovládá čísly na horní straně klávesnice a klávesou escape.
 ve hrách se pohybujete šipkami.
+
 
 
 ## Spuštění
 Hru spustíte v programu VisualStudio.
 
 Po instalaci spusťte soubor main.py
+
 
 
 ## Ukázka
