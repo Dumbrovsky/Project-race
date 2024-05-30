@@ -3,7 +3,8 @@ import time
 import json
 from green_flag.p_car import RaceCar
 
-# Definice šířky a výšky okna
+
+
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
@@ -19,14 +20,11 @@ def create_track_mask(track_image, background_color):
     return track_mask
 
 def load_track():
-    # Načtení obrázku trati
     track_image = pygame.image.load("race_track.png")
     track_image = pygame.transform.scale(track_image, (WINDOW_WIDTH, WINDOW_HEIGHT))
-    
-    # Barva pozadí
+
     background_color = (86, 125, 70)
 
-    # Vytvoření masky trati
     track_mask = create_track_mask(track_image, background_color)
 
     return track_mask
@@ -36,27 +34,25 @@ def run_race(screen, WIDTH, HEIGHT, player_name):
     font = pygame.font.Font(None, 36)
     background = pygame.image.load("race_track.png").convert()
 
-    # Načtení a vytvoření masky trati
     track_mask = load_track()
 
     race_car = RaceCar(track_mask)
     all_sprites = pygame.sprite.Group()
     all_sprites.add(race_car)
 
-    # Definování cílové čáry jako obdélníku
-    finish_line_rect = pygame.Rect(387, 415, 1, 123)  # Nastavení pozice a velikosti cílové čáry
-    finish_cooldown_rect = pygame.Rect(387, 415 - 50, 1, 123 + 100)  # Cooldown zóna kolem cílové čáry
+    finish_line_rect = pygame.Rect(387, 415, 1, 123)  
+    finish_cooldown_rect = pygame.Rect(387, 415 - 50, 1, 123 + 100)  
 
     total_laps = 3
     current_lap = 0
     race_start_time = None
     race_end_time = None
-    finish_line_delay = 0.2  # Zpoždění pro detekci průjezdu cílem (v sekundách)
-    finish_line_crossed = False  # Flag pro zajištění, že cílová čára je překročena pouze jednou za kolo
-    cooldown_zone_left = True  # Flag pro zajištění, že auto opustilo cooldown zónu
+    finish_line_delay = 0.2  
+    finish_line_crossed = False  
+    cooldown_zone_left = True  
 
     running = True
-    race_started = False  # Označení, zda závod začal
+    race_started = False  
 
     while running:
         for event in pygame.event.get():
@@ -70,17 +66,14 @@ def run_race(screen, WIDTH, HEIGHT, player_name):
 
         all_sprites.update()
 
-        # Kontrola, zda auto přejelo cílovou čáru
         if race_car.rect.colliderect(finish_line_rect):
             if not finish_line_crossed and cooldown_zone_left:
                 finish_line_crossed = True
                 passed_finish_line_time = time.time()
 
-        # Zajistit, že auto opustilo cooldown zónu před započítáním dalšího kola
         if not race_car.rect.colliderect(finish_cooldown_rect):
             cooldown_zone_left = True
 
-        # Zajistit legitimní překročení cílové čáry se zpožděním
         if finish_line_crossed and time.time() - passed_finish_line_time >= finish_line_delay:
             finish_line_crossed = False
             cooldown_zone_left = False
@@ -93,18 +86,15 @@ def run_race(screen, WIDTH, HEIGHT, player_name):
                     save_race_time(player_name, total_race_time)
                     from green_flag.menu import show_menu
                     show_menu(screen, WIDTH, HEIGHT)
-                    return  # Zajistit, že hra skončí po zobrazení menu
+                    return  
 
         screen.blit(background, (0, 0))
 
-        # Zajistit, že auto zůstane na trati
         if not track_mask.get_at((int(race_car.rect.centerx), int(race_car.rect.centery))):
-            race_car.rect.center = (400, 500)  # Reset pozice auta
-            race_car.velocity = pygame.math.Vector2(1, 0)  # Reset směru pohybu auta
+            race_car.rect.center = (400, 500)  
+            race_car.velocity = pygame.math.Vector2(1, 0) 
 
-        # Vykreslení cílové čáry
         pygame.draw.rect(screen, (255, 0, 0), finish_line_rect)
-        # Vykreslení cooldown zóny (volitelné, pro ladění)
         pygame.draw.rect(screen, (0, 255, 0), finish_cooldown_rect, 1)
 
         all_sprites.draw(screen)
@@ -120,14 +110,13 @@ def run_race(screen, WIDTH, HEIGHT, player_name):
 
 
 def save_race_time(name, lap_time):
-    lap_time = round(lap_time, 3)  # Zaokrouhlení času na tisíciny sekundy
+    lap_time = round(lap_time, 3) 
     try:
         with open("race_times.json", "r") as file:
             race_times = json.load(file)
     except FileNotFoundError:
         race_times = []
 
-    # Najít a aktualizovat nejlepší čas pro dané jméno
     found = False
     for record in race_times:
         if record["name"] == name:
