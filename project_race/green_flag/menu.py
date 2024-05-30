@@ -11,12 +11,10 @@ def draw_text(surface, text, size, x, y):
     surface.blit(text_surface, text_rect)
 
 def show_menu(screen, WIDTH, HEIGHT):
-    # Načtení obrázku pro pozadí
     background_image = pygame.image.load("GFmenu_picture.png").convert()
 
     menu = True
     while menu:
-        # Vykreslení pozadí
         screen.blit(background_image, (0, 0))
 
         draw_text(screen, "Green Flag", 64, WIDTH // 2, HEIGHT // 4)
@@ -32,7 +30,7 @@ def show_menu(screen, WIDTH, HEIGHT):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
                     player_name = get_player_name(screen, WIDTH, HEIGHT)
-                    if player_name == "":  # If ESC was pressed, return to main menu
+                    if player_name == "": 
                         return
                     run_race(screen, WIDTH, HEIGHT, player_name)
                 if event.key == pygame.K_2:
@@ -54,7 +52,7 @@ def get_player_name(screen, WIDTH, HEIGHT):
                 elif event.key == pygame.K_BACKSPACE:
                     name = name[:-1]
                 elif event.key == pygame.K_ESCAPE:
-                    return ""  # Return to main menu
+                    return "" 
                 else:
                     name += event.unicode
 
