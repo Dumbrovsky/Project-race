@@ -2,7 +2,7 @@ import pygame
 import sys
 from yellow_flag.menu import show_menu as show_yellow_flag_menu
 from green_flag.menu import show_menu as show_green_flag_menu
-from pitstop.menu import show_menu as show_pitstop_menu  # Přidáme import pro pitstop menu¨
+from pitstop.menu import show_menu as show_pitstop_menu  
 
 
 
