@@ -3,6 +3,8 @@ import sys
 import json
 from pitstop.game import run_pitstop
 
+
+
 def draw_text(surface, text, size, x, y):
     font = pygame.font.Font(None, size)
     text_surface = font.render(text, True, (255, 255, 255))
@@ -11,12 +13,10 @@ def draw_text(surface, text, size, x, y):
     surface.blit(text_surface, text_rect)
 
 def show_menu(screen, WIDTH, HEIGHT):
-    # Načtení obrázku pro pozadí
     background_image = pygame.image.load("Pmenu_picture.png").convert()
 
     menu = True
     while menu:
-        # Vykreslení pozadí
         screen.blit(background_image, (0, 0))
 
         draw_text(screen, "Pitstop", 64, WIDTH // 2, HEIGHT // 4)
@@ -72,7 +72,6 @@ def show_high_scores(screen, WIDTH, HEIGHT):
     except FileNotFoundError:
         scores = []
 
-    # Seřazení záznamů podle vzdálenosti sestupně
     scores.sort(key=lambda x: x.get('distance', 0), reverse=True)
 
     show_scores = True
