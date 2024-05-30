@@ -3,6 +3,8 @@ import sys
 import json
 from green_flag.game import run_race
 
+
+
 def draw_text(surface, text, size, x, y):
     font = pygame.font.Font(None, size)
     text_surface = font.render(text, True, (255, 255, 255))
