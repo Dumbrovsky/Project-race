@@ -1,7 +1,7 @@
 import pygame
 import sys
 import json
-from yellow_flag.game import run_game  # Relativní import
+from yellow_flag.game import run_game 
 
 
 
@@ -12,14 +12,11 @@ def draw_text(surface, text, size, x, y):
     text_rect.midtop = (x, y)
     surface.blit(text_surface, text_rect)
 
-# Úvodní menu
-def show_menu(screen, WIDTH, HEIGHT):
-    # Načtení obrázku pro pozadí
-    background_image = pygame.image.load("YFmenu_picture.png").convert()
 
+def show_menu(screen, WIDTH, HEIGHT):
+    background_image = pygame.image.load("YFmenu_picture.png").convert()
     menu = True
     while menu:
-        # Vykreslení pozadí
         screen.blit(background_image, (0, 0))
 
         draw_text(screen, "Yellow flag", 64, WIDTH // 2, HEIGHT // 4)
@@ -35,7 +32,7 @@ def show_menu(screen, WIDTH, HEIGHT):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
                     player_name = get_player_name(screen, WIDTH, HEIGHT)
-                    if player_name == "":  # If ESC was pressed, return to main menu
+                    if player_name == "": 
                         return
                     run_game(screen, WIDTH, HEIGHT, player_name)
                 if event.key == pygame.K_2:
@@ -43,7 +40,6 @@ def show_menu(screen, WIDTH, HEIGHT):
                 if event.key == pygame.K_ESCAPE:
                     return
 
-# Funkce pro zadání přezdívky
 def get_player_name(screen, WIDTH, HEIGHT):
     name = ""
     input_active = True
@@ -63,11 +59,9 @@ def get_player_name(screen, WIDTH, HEIGHT):
         screen.fill((0, 0, 0))
         draw_text(screen, "Zadejte přezdívku:", 36, WIDTH // 2, HEIGHT // 2 - 50)
         draw_text(screen, name, 36, WIDTH // 2, HEIGHT // 2)
-        pygame.display.flip()
-    
+        pygame.display.flip()    
     return name
 
-# Funkce pro zobrazení tabulky nejlepších výsledků
 def show_high_scores(screen, WIDTH, HEIGHT):
     try:
         with open("high_scores.json", "r") as file:
