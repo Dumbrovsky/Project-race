@@ -5,10 +5,10 @@ import pygame
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("F_crash-p_car.png").convert_alpha()  # Načte obrázek auta a zachová průhlednost
+        self.image = pygame.image.load("F_crash-p_car.png").convert_alpha()
         self.rect = self.image.get_rect()
-        self.rect.center = (400, 500)  # Počáteční pozice auta
-        self.lives = 3  # Přidání atributu pro životy
+        self.rect.center = (400, 500)  
+        self.lives = 3  
 
     def update(self):
         keys = pygame.key.get_pressed()
