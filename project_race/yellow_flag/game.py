@@ -7,7 +7,7 @@ from .debris import Obstacle
 from .gravel import BonusObstacle
 
 
-# Funkce pro uložení skóre
+
 def save_score(name, score):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, "..", "high_scores.json")
@@ -34,7 +34,6 @@ def save_score(name, score):
     with open(file_path, "w") as file:
         json.dump(high_scores, file)
 
-# Funkce pro spuštění hry
 def run_game(screen, WIDTH, HEIGHT, player_name):
     clock = pygame.time.Clock()
     font = pygame.font.Font(None, 36)
@@ -71,7 +70,7 @@ def run_game(screen, WIDTH, HEIGHT, player_name):
         if current_time - last_score_time >= score_interval:
             score += 1
             last_score_time = current_time
-            print(f"Score: {score}")  # Ladicí výpis pro kontrolu skóre
+            print(f"Score: {score}") 
 
         base_bg_speed = 9 + score // 10
         keys = pygame.key.get_pressed()
@@ -86,7 +85,7 @@ def run_game(screen, WIDTH, HEIGHT, player_name):
             bg_speed = base_bg_speed
             score_interval = 500
 
-        print(f"Background Speed: {bg_speed}, Score Interval: {score_interval}")  # Ladicí výpis
+        print(f"Background Speed: {bg_speed}, Score Interval: {score_interval}") 
 
         bg_y += bg_speed
         if bg_y >= HEIGHT:
@@ -126,10 +125,10 @@ def run_game(screen, WIDTH, HEIGHT, player_name):
                 print(f"Životy zbývající: {player.lives}")
                 if player.lives <= 0:
                     print("Srážka! Konec hry.")
-                    save_score(player_name, score)  # Uložení skóre při ukončení hry
+                    save_score(player_name, score)
                     from yellow_flag.menu import show_menu
                     show_menu(screen, WIDTH, HEIGHT)
-                    return  # Zajistit, že hra skončí po zobrazení menu
+                    return  
         else:
             if collided_recently and current_time - last_collision_time >= collision_cooldown:
                 collided_recently = False
@@ -146,7 +145,7 @@ def run_game(screen, WIDTH, HEIGHT, player_name):
 
         clock.tick(60)
 
-    print(f"Final Score: {score}")  # Ladicí výpis konečného skóre
-    save_score(player_name, score)  # Uložení skóre při ukončení hry
+    print(f"Final Score: {score}") 
+    save_score(player_name, score) 
     from yellow_flag.menu import show_menu
     show_menu(screen, WIDTH, HEIGHT)
