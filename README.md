@@ -5,6 +5,11 @@ Tento projekt je závodní hra s tématikou Formule 1. Program obsahuje tři min
 Pro hraní této hry jsou potřeba tato rozšíření:
 - `pygame`
 - `sys`
+  ### Jak nainstaluji potřebná rozšíření?
+- Použijte následující příkazy k instalaci rozšíření:
+  ```bash
+  pip install pygame
+  pip install sys
 
 ## Minihry
 
@@ -47,10 +52,3 @@ Cílem hry je ujet co nejdelší vzdálenost.
 ![Yellow flag](project_race/YFmenu_picture.png)
 ![Green flag](project_race/GFmenu_picture.png)
 ![Pitstop](project_race/Pmenu_picture.png)
-
-### Jak nainstaluji potřebná rozšíření?
-- Použijte následující příkazy k instalaci rozšíření:
-  ```bash
-  pip install pygame
-  pip install sys
-
