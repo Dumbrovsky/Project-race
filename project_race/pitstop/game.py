@@ -1,7 +1,7 @@
 import pygame
 import time
 import json
-from pitstop.p_car import RaceCar  # Importujeme RaceCar z pitstop_p_car.py
+from pitstop.p_car import RaceCar  
 
 
 
