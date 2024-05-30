@@ -1,51 +1,42 @@
 # Project-race
-Toto je závodní hra s tématikou Formule 1. Program obsahuje tři minihry (Yellow flag, Green flag a Pitstop).
+Tento projekt je závodní hra s tématikou Formule 1. Program obsahuje tři minihry (Yellow flag, Green flag a Pitstop).
 
 V každé minihře si můžete prohlédnout také tabulku nejlepších.
 
-
-
 ## Potřebné rozšíření
-Pro hraní této hry jsou potřeba tyto rozšíření (pygame a sys).
-
-
+Pro hraní této hry jsou potřeba rozšíření pygame a sys.
 
 ## Minihry
 ### 1. Yellow flag
-V této minihře jedete po nekonečné trati, a musíte se vyhýbat překážkám.
+V této minihře jedete po nekonečné trati a musíte se vyhýbat překážkám.
 
-Cílem je vydržet co nejdéle a tím pádem nasbírat co nejvyšší skóre.
+Cílem je vydržet co nejdéle a tak nasbírat co nejvyšší skóre.
 
-Ve hře můžete zrychlyt (zrychlí se rychlost i přičítání bodů) a zpomalit (spomalí se rychlost i přičítání bodů).
+Ve hře můžete zrychlit (zrychlí se rychlost i přičítání bodů) a zpomalit (zpomalí se rychlost i přičítání bodů).
 
-Jsou dva typy překážek): Pneumatika (Tato překážka vám odebere jeden život) a Štěrk (Tato překážka vám odebere 10 bodů).                     
-                        
+Jsou dva typy překážek: Pneumatika (tato překážka vám odebere jeden život) a Štěrk (tato překážka vám odebere 10 bodů).
+
 ### 2. Green flag
 V této minihře musíte co nejrychleji projet tři kola na jednoduché trati.
 
-Pokud si skusíte zkrátit zatáčku tak vás hra vrátí na začátek kola.
+Pokud se pokusíte zkrátit zatáčku, hra vás vrátí na začátek kola.
 
 ### 3. Pitstop
 V této minihře jedete po stejné trati jako v Green flag.
 
-Při každém zatočení se odečítá životnost pneumatik.
+Při každém zatočení se snižuje životnost pneumatik.
 
-Cílem hry je odjed co nejdelší vzdálenost.
-
-
+Cílem hry je ujet co nejdelší vzdálenost.
 
 ## Ovládání
-Menu se ovládá čísly na horní straně klávesnice a klávesou escape.
-ve hrách se pohybujete šipkami.
-
-
+Menu se ovládá čísly na horní části klávesnice a klávesou Escape.
+Ve hrách se pohybujete šipkami.
 
 ## Spuštění
-Hru spustíte v programu VisualStudio.
+1. Otevřete složku `projekt_race` ve Visual Studio.
+2. Spusťte soubor `main.py`.
 
-Po instalaci spusťte soubor main.py
-
-
+> **Poznámka:** Hra funguje pouze tehdy, když se otevře přímo složka `projekt_race`, nikoliv hlavní složka `project-race`.
 
 ## Ukázka
 ![Yellow flag](project_race/YFmenu_picture.png)
